@@ -4,7 +4,6 @@
 在开始运行工程之前，请您准备以下开发环境：
 
 - Xcode 15.0 或以上。
-- cocoapods 1.10.1 或以上
 - iPhone 系统版本13.0 或以上版本的移动设备。
 
 
@@ -12,10 +11,15 @@
 
 **1.导入SDK**
 - 克隆或者直接下载[Demo仓库源码](https://github.com/CFGameTech/IntermodalGameDemo)
-- 找到 `iOS/app/libs/cfgamelib.framework` 文件；
+- 找到 `CFGameSDK.framework` 文件以及`CFGameSDK.bundle`文件；
 - 将该framework文件拷贝到工程的app目录下；
 - 在 Project -> build setting 中，添加引用 framework 包，并设置为 Embed & Sign 方式引入
-- 将Demo工程中- Project - 下的 Resource 文件夹拖入主工程中
+- 在info.plist文件中添加下面字段
+-     <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 
 ## 三、接入指引
 
@@ -325,24 +329,22 @@
 
 **1）接口说明**
 ```oc
-/**
- * @param logger: ZKLogger
- */
-+(void)setLogger:(ZKLogger *)logger;
-
--ZKLogger-
-- (void)level:(ZKLogLevel)level format:(NSString *)format, ...;
++ (void)cfGameSDKLog:(void(^)(NSString *logMsg))handler;
 
 ``` 
 
 **2）参数说明**
 
-*无*
+  sdk日志打印接口
+  logMsg:日志信息
 
 **3）调用参考**
 
 ```oc
- [CFGameSDK setLogger:logger];
+    [CFGameSDK cfGameSDKLog:^(NSString * _Nonnull logMsg) {
+        
+        NSLog(@"log:%@",logMsg);
+    }];
 ``` 
 
 
@@ -365,6 +367,72 @@
  [CFGameSDK releaseSDK];
 
 ``` 
+### 11. 透传参数上报
+接入方通过此接口上报透传参数（如有的话），最后会以服务器的方式传回给接入方
+**1）接口说明**
+```oc
+	+(void)sentExtToGame:(NSString *)extString;
+```
+**2）参数说明**
+	extString : 透传参数 (传字符串类型，内容由平台自定义)
+**3）调用参考**
+```oc
+[CFGameSDK sentExtToGame:@"Good"];
+```
+
+
+### 12. 开始游戏
+调用此接口，游戏会立马开始
+**1）接口说明**
+```oc
+	+(void)gameStart;
+```
+**2）参数说明**
+无
+**3）调用参考**
+```oc
+[CFGameSDK gameStart];
+```
+
+### 13. 踢人
+调用此接口，房主可以把普通玩家踢出房间
+**1）接口说明**
+```oc
+	+(void)playerRemoveWithUid:(NSString *)uid;
+```
+**2）参数说明**
+	uid : 被踢玩家的用户id
+**3）调用参考**
+```oc
+[CFGameSDK playerRemoveWithUid:@"10086"];
+```
+
+### 14. 打开/关闭 背景音乐
+调用此接口，可以控制游戏打开/关闭背景音乐
+**1）接口说明**
+```oc
+	+(void)gameBackgroundMusicSet:(BOOL *)mode;
+```
+**2）参数说明**
+ mode ： YES 打开 NO 关闭
+**3）调用参考**
+```oc
+[CFGameSDK gameBackgroundMusicSet:YES];
+```
+
+
+### 15. 打开/关闭 游戏音效
+调用此接口，可以控制游戏打开/关闭游戏音效
+**1）接口说明**
+```oc
+	+(void)gameSoundSet:(BOOL *)mode;
+```
+**2）参数说明**
+ mode ： YES 打开 NO 关闭
+**3）调用参考**
+```oc
+[CFGameSDK gameSoundSet:YES];
+```
 
 
 ## 四、加载游戏的方式
