@@ -7,7 +7,6 @@
 
 #import "ViewController.h"
 #import <CFGameSDK/CFGameSDK.h>
-#import <CFGameSDK/CFGameWebviewController.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *languageTF;
@@ -85,7 +84,7 @@
     [self.view endEditing:YES];
 
     
-    [CFGameSDK setUpSDKWithApplication:UIApplication.sharedApplication appId:[self.channelTF.text integerValue] language:_languageTF.text isProduct:self.isProduct];
+    [CFGameSDK setUpSDKWithApplication:UIApplication.sharedApplication appId:self.channelTF.text language:_languageTF.text isProduct:self.isProduct];
     
     [CFGameSDK setBizCallback:self];
     
