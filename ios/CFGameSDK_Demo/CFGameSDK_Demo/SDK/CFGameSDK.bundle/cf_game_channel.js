@@ -83,6 +83,18 @@ var cf_game={
             };
             CFGameLife.preJoinGame.postMessage(message);
         },
+        onSeatAvatarTouch(userid, seat) {
+            console.log("onSeatAvatarTouch()");
+            var invokeId = getInvokeId();
+            var message = {
+                invokeId:invokeId,
+                data:{
+                    userid:userid,
+                    seat:seat
+                }
+            };
+            CFGameLife.onSeatAvatarTouch.postMessage(message);
+        },
         joinGame(uid) {
             console.log("joinGame()");
             CFGameLife.joinGame.postMessage(uid);
@@ -105,7 +117,7 @@ var cf_game={
         },
         gameStart(){
             console.log("gameStart()");
-            CFGameLife.gameStart()
+            CFGameLife.gameStart();
         },
         playerRemoveWithUid(uid){
             console.log("playerRemoveWithUid()");
@@ -121,8 +133,12 @@ var cf_game={
         },
         qiutGame(){
             console.log("qiutGame()");
-            CFGameLife.qiutGame()
-        }
+            CFGameLife.qiutGame();
+        },
+        gameLoadOfflineProps() {
+            console.log("gameLoadOfflineProps()");
+            CFGameLife.gameLoadOfflineProps();
+        },
         
         
     }
