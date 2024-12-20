@@ -1,4 +1,5 @@
-创发游戏安卓sdk接入文档，版本1.3.2。
+创发游戏安卓sdk接入文档，版本1.7.0。
+https://wiki.lucky9studio.com/zh/android
 
 ## 一、开发环境要求
 LUKSDK编译配置如下：

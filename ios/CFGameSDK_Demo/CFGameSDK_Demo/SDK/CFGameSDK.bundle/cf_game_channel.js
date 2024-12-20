@@ -105,7 +105,7 @@ var cf_game={
         },
         gameStart(){
             console.log("gameStart()");
-            CFGameLife.gameStart();
+            CFGameLife.gameStart()
         },
         playerRemoveWithUid(uid){
             console.log("playerRemoveWithUid()");
@@ -121,12 +121,8 @@ var cf_game={
         },
         qiutGame(){
             console.log("qiutGame()");
-            CFGameLife.qiutGame();
-        },
-        gameLoadOfflineProps() {
-                console.log("gameLoadOfflineProps()");
-                CFGameLife.gameLoadOfflineProps();
-        },
+            CFGameLife.qiutGame()
+        }
         
         
     }

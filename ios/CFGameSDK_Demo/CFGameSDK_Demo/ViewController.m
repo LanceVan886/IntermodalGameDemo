@@ -8,7 +8,7 @@
 #import "ViewController.h"
 #import <CFGameSDK/CFGameSDK.h>
 
-@interface ViewController ()
+@interface ViewController () <CFGameSDKDelegate,CFGameSDKRTCDelegate,CFGameSDKLoginDelegate,CFGameLifeCycleDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *languageTF;
 @property (weak, nonatomic) IBOutlet UITextField *channelTF;
 @property (weak, nonatomic) IBOutlet UITextField *userIDTF;
@@ -84,7 +84,7 @@
     [self.view endEditing:YES];
 
     
-    [CFGameSDK setUpSDKWithApplication:UIApplication.sharedApplication appId:self.channelTF.text language:_languageTF.text isProduct:self.isProduct];
+    [CFGameSDK setUpSDKWithApplication:UIApplication.sharedApplication appId:self.channelTF.text language:_languageTF.text isProduct:YES];
     
     [CFGameSDK setBizCallback:self];
     
@@ -170,6 +170,11 @@
     
 }
 
+- (void)onPreLoadGameSuccess:(NSInteger)gid { 
+    
+}
+
+
 
 /**
  *
@@ -202,7 +207,7 @@
  */
 - (void)onGameLoadFail{
     NSLog(@"CFViewController callback onGameLoadFail ");
-
+    
 }
 
 
@@ -210,8 +215,8 @@
  *
  * 用户自动上麦加入游戏
  */
-- (BOOL)onPreJoinGame:(NSString *)uid seatIndex:(int)seatIndex{
-    NSLog(@"CFViewController callback  onPreJoinGame uid = %@ , seatIndex = %d",uid,seatIndex);
+- (BOOL)onPreJoinGame:(NSString *)uid seatIndex:(NSInteger)seatIndex{
+    NSLog(@"CFViewController callback  onPreJoinGame uid = %@ , seatIndex = %ld",uid,seatIndex);
     return YES;
 }
 
@@ -221,7 +226,7 @@
  */
 - (void)onJoinGame:(NSString *)uid{
     NSLog(@"CFViewController callback  uid = %@, JoinGame ",uid);
-
+    
 }
 
 /**
@@ -230,7 +235,7 @@
  */
 - (void)onGamePrepare:(NSString *)uid{
     NSLog(@"CFViewController callback uid = %@, gamePrepare ",uid);
-
+    
 }
 
 /**
@@ -239,8 +244,10 @@
  */
 - (void)onCancelPrepare:(NSString *)uid{
     NSLog(@"CFViewController callback uid = %@, CancelPrepare ",uid);
-
+    
 }
+
+
 
 
 /**
@@ -259,6 +266,16 @@
     NSLog(@"CFViewController callback game over ");
 }
 
+- (void)gameDidFinishLoad { 
+    
+}
+
+
+- (void)onSeatAvatarTouch:(NSString * _Nonnull)uid seatIndex:(NSInteger)index { 
+    
+}
+
+
 
 - (BOOL)onCFGamePushSelfRTC:(BOOL)push{
     return YES;
@@ -267,5 +284,6 @@
 - (BOOL)onCFGamePullOtherRTC:(NSString *)uid pull:(BOOL)pull{
     return YES;
 }
+
 
 @end
