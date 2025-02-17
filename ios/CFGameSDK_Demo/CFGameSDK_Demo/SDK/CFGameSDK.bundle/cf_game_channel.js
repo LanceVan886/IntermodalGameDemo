@@ -131,8 +131,8 @@ var cf_game={
             console.log("gameSoundSet()");
             CFGameLife.gameSoundSet.postMessage(mode);
         },
-        qiutGame(){
-            console.log("qiutGame()");
+        quitGame(){
+            console.log("quitGame()");
             CFGameLife.qiutGame.postMessage();
         },
         gameLoadOfflineProps() {
