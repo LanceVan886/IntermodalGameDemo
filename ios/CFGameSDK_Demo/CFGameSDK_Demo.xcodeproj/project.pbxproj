@@ -14,8 +14,9 @@
 		3661544B2C10670000B39751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3661544A2C10670000B39751 /* Assets.xcassets */; };
 		3661544E2C10670000B39751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3661544C2C10670000B39751 /* LaunchScreen.storyboard */; };
 		366154512C10670000B39751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 366154502C10670000B39751 /* main.m */; };
+		64D20BBB2D940C200089353A /* CFGameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E277402CA15C0F00EEC7FE /* CFGameSDK.framework */; };
+		64D20BBC2D940C200089353A /* CFGameSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64E277402CA15C0F00EEC7FE /* CFGameSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64E277422CA15C0F00EEC7FE /* CFGameSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64E2773F2CA15C0F00EEC7FE /* CFGameSDK.bundle */; };
-		64E277432CA15C0F00EEC7FE /* CFGameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E277402CA15C0F00EEC7FE /* CFGameSDK.framework */; };
 		AF6F64F90528DB1B33DC82DB /* Pods_CFGameSDK_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64399040D41FC8F12864B01 /* Pods_CFGameSDK_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				64D20BBC2D940C200089353A /* CFGameSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64E277432CA15C0F00EEC7FE /* CFGameSDK.framework in Frameworks */,
+				64D20BBB2D940C200089353A /* CFGameSDK.framework in Frameworks */,
 				AF6F64F90528DB1B33DC82DB /* Pods_CFGameSDK_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,9 +400,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 492N7J69NZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,9 +463,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 492N7J69NZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

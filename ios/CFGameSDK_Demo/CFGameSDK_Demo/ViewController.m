@@ -84,7 +84,7 @@
     [self.view endEditing:YES];
 
     
-    [CFGameSDK setUpSDKWithApplication:UIApplication.sharedApplication appId:self.channelTF.text language:_languageTF.text isProduct:YES];
+    [CFGameSDK setUpSDKWithApplication:UIApplication.sharedApplication appId:self.channelTF.text language:_languageTF.text area:@"sg" isProduct:YES];
     
     [CFGameSDK setBizCallback:self];
     

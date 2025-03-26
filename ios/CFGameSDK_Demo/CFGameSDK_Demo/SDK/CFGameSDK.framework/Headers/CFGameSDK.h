@@ -129,6 +129,12 @@ typedef void(^GetGameListFailureBlk)(int code ,NSString * __nonnull msg);
 - (void)onGameOver;
 
 
+/**
+ *
+ *  购买结果回调
+ */
+- (void)onGamePurchaseResult:(int)code OrderId:(NSString *__nonnull)orderId;
+
 @end
 
 
@@ -166,7 +172,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param appId : 创发提供的appId
  *  @param appKey : 创发提供的appKey
  */
-+(void)setUpSDKWithApplication:(UIApplication *)app appId:(NSString *)appId language:(NSString *)language isProduct:(BOOL)isProduct;
++(void)setUpSDKWithApplication:(UIApplication *)app appId:(NSString *)appId language:(NSString *)language area:(NSString *)area isProduct:(BOOL)isProduct;
 
 
 /*
