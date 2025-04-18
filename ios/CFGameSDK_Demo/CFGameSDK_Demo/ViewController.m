@@ -170,6 +170,11 @@
     
 }
 
+- (void)onGamePageClose{
+    
+    [CFGameSDK finishGameWindow];
+}
+
 - (void)onPreLoadGameSuccess:(NSInteger)gid { 
     
 }
